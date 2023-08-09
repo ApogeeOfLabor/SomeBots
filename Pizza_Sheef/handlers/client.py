@@ -2,7 +2,6 @@ from aiogram import types, Dispatcher
 from aiogram.dispatcher.filters import Text
 from src.headers import bot
 from keyboards.client_kb import client_keyboard
-# from aiogram.types import ReplyKeyboardRemove
 
 
 async def command_start(message: types.Message):
