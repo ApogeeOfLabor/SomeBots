@@ -1,4 +1,6 @@
 import sqlite3
+from aiogram import types
+from src.headers import bot
 
 
 def make_db():
@@ -16,3 +18,11 @@ async def insert_value(state):
         cursor.execute('INSERT INTO menu VALUES (?, ?, ?, ?)', tuple(data.values()))
         base.commit()
 
+
+async def clear_value(data):
+    cursor.execute('DELETE FROM menu WHERE name == ?', (data,))
+    base.commit()
+
+
+async def get_menu():
+    return cursor.execute('SELECT * FROM menu').fetchall()
